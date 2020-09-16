@@ -173,7 +173,7 @@ public class ShadowDisplayManager {
    * @param displayId the display id to change
    * @param consumer a function which modifies the display properties
    */
-  static void changeDisplay(int displayId, Consumer<DisplayConfig> consumer) {
+  public static void changeDisplay(int displayId, Consumer<DisplayConfig> consumer) {
     DisplayInfo displayInfo = DisplayManagerGlobal.getInstance().getDisplayInfo(displayId);
     if (displayInfo != null) {
       DisplayConfig displayConfig = new DisplayConfig(displayInfo);
