@@ -12,6 +12,7 @@ import android.bluetooth.BluetoothDevice;
 import android.bluetooth.BluetoothProfile;
 import android.bluetooth.BluetoothServerSocket;
 import android.bluetooth.BluetoothSocket;
+import android.bluetooth.le.BluetoothLeAdvertiser;
 import android.bluetooth.le.BluetoothLeScanner;
 import android.content.Context;
 import android.os.Build;
@@ -88,6 +89,11 @@ public class ShadowBluetoothAdapter {
     }
 
     return bluetoothLeScanner;
+  }
+
+  @Implementation(minSdk = LOLLIPOP)
+  protected BluetoothLeAdvertiser getBluetoothLeAdvertiser() {
+    return ShadowBluetoothLeAdvertiser.getInstance();
   }
 
   @Implementation
